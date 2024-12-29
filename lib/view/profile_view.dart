@@ -4,6 +4,7 @@ import 'package:flutter_hungry_hub/view/orders_view.dart';
 import 'package:flutter_hungry_hub/view/register_shop_view.dart';
 import 'package:flutter_hungry_hub/view_model/profile_view_model.dart';
 import 'package:flutter_hungry_hub/widgets/common_widget/profile/addresses.dart';
+import 'package:flutter_hungry_hub/widgets/common_widget/profile/edit_pass.dart';
 import 'package:flutter_hungry_hub/widgets/common_widget/profile/favourite.dart';
 import 'package:flutter_hungry_hub/widgets/common_widget/profile/function_png.dart';
 import 'package:flutter_hungry_hub/widgets/common_widget/profile/notification.dart';
@@ -12,7 +13,8 @@ import 'package:flutter_hungry_hub/widgets/common_widget/profile/purchased.dart'
 import 'package:flutter_hungry_hub/widgets/common_widget/profile/persionnal_info.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter_hungry_hub/widgets/common_widget/check_mail/check_mail2.dart';
+import 'package:flutter_hungry_hub/widgets/common_widget/profile/edit_email.dart';
 import '../widgets/common/image_extention.dart';
 import '../widgets/common_widget/profile/function_profile.dart';
 import 'login_view.dart';
@@ -96,7 +98,7 @@ class _ProfileViewState extends State<ProfileView> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 16),
                     child: Container(
-                      height: 170,
+                      height:260,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
@@ -137,6 +139,29 @@ class _ProfileViewState extends State<ProfileView> {
                                     image: ImageAsset.GPS,
                                     title: 'Order tracking',
                                   )),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    Get.to(() =>  EditPassView());
+                                  },
+                                  child: FunctionProfile(
+                                    image: ImageAsset.personalInfo,
+                                    title: 'Change password',
+                                  )),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    Get.to(() =>  EditEmailView());
+                                  },
+                                  child: FunctionProfile(
+                                    image: ImageAsset.personalInfo,
+                                    title: 'Change email',
+                                  )),
+                              
                             ],
                           ),
                         ),

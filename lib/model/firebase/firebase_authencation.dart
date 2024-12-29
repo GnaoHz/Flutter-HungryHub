@@ -181,4 +181,42 @@ class FirAuth {
     await _firebaseAuth.signOut();
     Get.to(() => const LoginView());
   }
+
+  void updateUserInfo(String userId, String hoTen, String addRess, String sex,String numberPhone
+      ) {
+    // Tạo đối tượng map với các trường dữ liệu cần cập nhật
+    var updatedUser = {
+      'fullName': hoTen,
+      'address': addRess,
+      'sex': sex,
+      'numberPhone':numberPhone,
+    };
+
+    // Tham chiếu đến vị trí người dùng cần cập nhật trong Firebase
+    var ref = FirebaseDatabase.instance.ref().child('users').child(userId);
+
+    // Cập nhật dữ liệu trong Firebase Realtime Database
+    ref.update(updatedUser).then((_) {
+      print("User info updated successfully");
+    }).catchError((err) {
+      print("Error: $err");
+    });
+  }
+  void updateEmail(String userId, String email
+      ) {
+    // Tạo đối tượng map với các trường dữ liệu cần cập nhật
+    var updatedUser = {
+      'email':email
+    };
+
+    // Tham chiếu đến vị trí người dùng cần cập nhật trong Firebase
+    var ref = FirebaseDatabase.instance.ref().child('users').child(userId);
+
+    // Cập nhật dữ liệu trong Firebase Realtime Database
+    ref.update(updatedUser).then((_) {
+      print("User info updated successfully");
+    }).catchError((err) {
+      print("Error: $err");
+    });
+  }
 }
